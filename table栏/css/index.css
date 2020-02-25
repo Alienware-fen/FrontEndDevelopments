@@ -1,0 +1,32 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+}
+ul::after{
+	content: "";
+	display: block;
+	clear: both;
+}
+ul li{
+	float: left;
+	width: 100px;
+	height: 100px;
+	background: red;
+	margin-right: 20px;
+}
+li.current{
+	/*设置该类的目的是一开始就会显示这个标题的样式 */
+	color: blue;
+	border-bottom: 1px solid blue;
+}
+section div{
+	width: 100px;
+	height: 100px;
+	border: 1px solid red;
+	display: none;
+}
+div.current{
+	/*设置该类的目的是一开始就会显示这个选项卡 */
+	display: block;
+}

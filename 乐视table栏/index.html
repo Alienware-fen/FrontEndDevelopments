@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>index</title>
+		<script src="js/jquery-3.0.0.min.js"></script>
+		<style>
+			*{
+				margin: 0px;
+				padding: 0px;
+				list-style: none;
+			}
+			.pic{
+				position: relative;
+			}
+			.warp{
+				position: relative;
+				height: 500px;
+			}
+			img{
+				width: 100%;
+				height: 480px;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				display: none;
+			}
+			ol{
+				position: absolute;
+				top: 80px;
+				right: 10px;
+				height: 310px;
+				background: rgba(0, 0, 0, 0.6);
+			}
+			ol li{
+				width: 230px;
+				line-height: 30px;
+				color: white;
+				padding-left: 10px;
+				cursor: pointer;
+			}
+			.col{
+				background: rgba(255, 0, 0, 0.5);
+				border-left: 2px solid red;
+			}
+			.show{
+				display: inline-block;
+			}
+		</style>
+	</head>
+	<body>
+	<div class="warp">
+		<div class="pic">
+			<img src="img/01.jpg" alt="" class="show">
+			<img src="img/02.jpg" alt="">
+			<img src="img/03.jpg" alt="">
+			<img src="img/04.jpg" alt="">
+			<img src="img/05.jpg" alt="">
+			<img src="img/06.jpg" alt="">
+			<img src="img/07.jpg" alt="">
+			<img src="img/08.jpg" alt="">
+			<img src="img/09.jpg" alt="">
+			<img src="img/10.jpg" alt="">
+		</div>
+		<ol>
+			<li class="col">光年： 千年之恋</li>
+			<li>光年： 千年之恋</li>
+			<li>光年： 千年之恋</li>
+			<li>光年： 千年之恋</li>
+			<li>光年： 千年之恋</li>
+			<li>光年： 千年之恋</li>
+			<li>光年： 千年之恋</li>
+			<li>光年： 千年之恋</li>
+			<li>光年： 千年之恋</li>
+			<li>光年： 千年之恋</li>
+		</ol>
+	</div>
+		<script>
+			$('.warp li').mouseenter(function(){
+				$(this).addClass('col').siblings().removeClass('col');
+				$('img').eq($(this).index()).fadeIn().siblings().fadeOut();
+			})
+		</script>
+	</body>
+</html>

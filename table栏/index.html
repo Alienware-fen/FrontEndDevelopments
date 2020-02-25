@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>table栏</title>
+		<link rel="stylesheet" href="css/index.css">
+		<script src="js/jquery-3.0.0.min.js"></script>
+		<style>
+			*{
+				margin: 0px;
+				padding: 0px;
+				list-style: none;
+			}
+			ul::after{
+				content: "";
+				display: block;
+				clear: both;
+			}
+			ul li{
+				float: left;
+				width: 100px;
+				height: 100px;
+				background: pink;
+				margin-right: 20px;
+			}
+			.currentli{
+				/*设置该类的目的是一开始就会显示这个标题的样式 */
+				color: blue;
+				border-bottom: 1px solid blue;
+			}
+			section div{
+				width: 100px;
+				height: 100px;
+				border: 1px solid red;
+				display: none;
+			}
+			.currentdiv{
+				/*设置该类的目的是一开始就会显示这个选项卡 */
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li class="currentli" onclick="oclick(this)">热点</li>
+			<li onclick="oclick(this)">新闻</li>
+			<li onclick="oclick(this)">娱乐</li>
+			<li onclick="oclick(this)">社会</li>
+			<li onclick="oclick(this)">媒体</li>
+		</ul>
+		<section>
+			<div class="currentdiv">热点内容</div>
+			<div>新闻内容</div>
+			<div>娱乐内容</div>
+			<div>社会内容</div>
+			<div>媒体内容</div>
+		</section>
+		<script>
+			function oclick(a){
+				$(a).index();
+
+				$(a).attr('class','currentli');
+				$(a).siblings().removeAttr('class');
+
+				$('div').eq($(a).index()).attr('class','currentdiv');
+				$('div').eq($(a).index()).siblings().removeAttr('class');
+
+			}
+		</script>
+	</body>
+</html>

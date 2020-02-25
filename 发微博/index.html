@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>作业</title>
+		<script src="js/jquery-3.0.0.min.js"></script>
+		<link rel="stylesheet" href="css/index.css">
+	</head>
+	<body>
+			<div id="warp">
+				<textarea id="inp" placeholder="请输入内容"></textarea>
+				<br>
+				<button id="bot" onclick="send()">发布微博</button>
+			</div>
+			<ul id="box">
+				<li>我的第一条微博
+					<span onclick="del(this)">x</span>
+					<p>2017年9月23日 11时56分25秒 星期6</p>
+				</li>
+				<li>我的第二条微博
+					<span onclick="del(this)">x</span>
+					<p>2019年10月3日 13时16分45秒 星期1</p>
+				</li>
+			</ul>	
+	</body>
+	<script src="js/index.js"></script>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>商品展示</title>
+		<script src="js/jquery-3.0.0.min.js"></script>
+		<style>
+			*{
+				margin: 0px;
+				padding: 0px;
+				list-style: none;
+			}
+			ul{
+				width: 600px;
+				height: 200px;
+				margin: 100px auto;
+				border: 2px solid grey;
+				padding: 3px 3px 3px 0px;
+			}
+			
+			li{
+				float: left;
+				width: 147px;
+				height: 200px;
+				overflow: hidden;
+				margin-left: 3px;
+				position: relative;
+				cursor: pointer;
+			}
+			p{
+				position: absolute;
+				width: 147px;
+				line-height: 30px;
+				background: rgba(0, 0, 0, 0.6);
+				bottom: 2px;
+				text-align: center;
+				color: white;
+				display: none;
+			}
+			.move{
+				transform: translateX(-100px);
+				
+			}
+			img{
+				transition: transform 2s;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li><img src="images/01.jpg" alt="">
+				<p>巧克力蛋糕</p>
+			</li>
+		</ul>
+		<script>
+			var list=[{
+				src:"images/02.jpg",
+				title:'巧克力蛋糕'
+			},
+			{
+				src:"images/03.jpg",
+				title:'巧克力蛋糕'
+			},
+			{
+				src:"images/04.jpg",
+				title:'巧克力蛋糕'
+			}];
+			for(var i=0;i<list.length;i++){
+				var tag=$('ul li').eq(0).clone(true);
+				tag.children('img').attr('src',list[i].src);
+				tag.children('p').html(list[i].title);
+				$('ul').append(tag);
+			}
+
+			$('ul li').hover(function(){
+				$(this).children('p').slideToggle(400);
+				$(this).children('img').toggleClass('move');
+			})
+		</script>
+	</body>
+</html>
+<!--
+	|--动画加在图片身上
+
+
+
+
+
+
+ -->

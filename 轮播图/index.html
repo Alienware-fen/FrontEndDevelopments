@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>轮播图</title>
+		<script src="js/jquery-3.0.0.min.js"></script>
+		<link rel="stylesheet" href="css/index.css">
+		<style>
+			*{
+				margin: 0px;
+				padding: 0px;
+				list-style: none;
+			}
+			.warp{
+				width: 300px;
+				height: 168px;
+				margin: 200px auto;
+				position: relative;
+				overflow: hidden;
+			}
+			ul{
+				width: 9999px;
+				position: relative;
+				/* 设置定位方式，left才会有用 ！！！*/
+			}
+			ul li{
+				float: left;
+				cursor: pointer;
+			}
+			ol{
+				position: absolute;
+				bottom: 0px;
+				left: 50%;
+				transform: translateX(-50%);
+				/* 水平居中的方式！！！！！！！ */
+			}
+			ol li{
+				float: left;
+				width: 25px;
+				height: 25px;
+				border-radius: 50%;
+				margin-right: 10px;
+				background: blue;
+				cursor: pointer;
+
+			}
+			.current{
+				background: white;
+			}
+			span{
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+				cursor: pointer;
+				background: rgba(0, 0, 0, 0.4);
+				/* 垂直居中的方式设置 */
+			}
+			.left{
+				left: 10px;
+			}
+			.right{
+				right: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="warp">
+			<ul>
+				<li><img src="img/01.jpg" alt="" width="300"></li>
+				<li><img src="img/02.jpg" alt="" width="300"></li>
+				<li><img src="img/03.jpg" alt="" width="300"></li>
+				<li><img src="img/04.jpg" alt="" width="300"></li>
+			</ul>
+			<ol id="nav">
+				<li class="current" onclick="navclick(this)"></li>
+				<li onclick="navclick(this)"></li>
+				<li onclick="navclick(this)"></li>
+				<li onclick="navclick(this)"></li>
+			</ol>
+			<span class="left" onclick="leftclick(this)">left</span>
+			<span class="right" onclick="rightclick(this)">right</span>
+			
+		</div>
+		<script>
+			var n=0;
+			var timer;
+			function all(){
+				$('ol li').eq(n).attr('class','current');
+				$('ol li').eq(n).siblings().removeAttr('class');
+				$('ul').css('left',-300*n+'px');
+			}
+
+			function gogo(){
+				timer=setInterval(function(){
+					n++;
+					if(n==$('ul li').length) n=0;
+					all();
+				},2000)
+			}
+			
+			gogo();
+			$('div').mouseenter(function(){
+				clearInterval(timer);
+			})
+			$('div').mouseleave(function(){
+				gogo();
+			})
+
+			// 导航栏
+			function navclick(a){
+				$(a).index();
+				$(a).attr('class','current');
+				$(a).siblings().removeAttr('class');
+				$('ul').css('left',-300*$(a).index()+'px');
+			}			
+			// 左边
+			function leftclick(a){
+				n=n-1;
+				if(n<0) n=$('ol li').length-1;
+				all();
+			}
+			// 右边
+			function rightclick(a){
+				n++;
+				if(n>3)n=0;
+				all();
+			}
+
+		</script>
+	</body>
+</html>

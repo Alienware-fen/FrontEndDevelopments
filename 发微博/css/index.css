@@ -1,0 +1,50 @@
+			*{
+				margin: 0px;
+				padding: 0px;
+				list-style: none;
+			}
+			body{
+				background-color: #C2CDE1
+			}
+			div{
+				width: 600px;
+				height: 200px;
+				border-radius: 5px;
+				margin: 30px auto;
+				text-align: center;
+				background: white;
+			}
+			#bot{
+				margin: 15px -486px 10px 0px;
+				background: #FF8140;
+				color:white;
+				border: none;
+				border-radius: 3px;
+				width: 70px;
+				height: 28px;
+			}
+			#inp{
+				width: 555px;
+				height:100px;
+				margin-top: 30px;
+				outline: none;
+			}
+			ul li{
+				width: 560px;
+				height: 80px;
+				padding: 20px;
+				border-radius: 5px;
+				margin: 10px auto;
+				background: white;
+				position: relative;
+			}
+			span{
+				position: absolute;
+				right: 15px;
+				top: 15px;
+			}
+			p{
+				margin-top: 50px;
+				color: #CFCCCC;
+				font-size: 12px;
+			}
